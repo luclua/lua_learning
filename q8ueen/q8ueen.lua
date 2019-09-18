@@ -39,8 +39,10 @@ end
 function add_queen(a, n)
     if n > N then
         sln_n = sln_n + 1
-        sln_s[sln_n] = a
-        p_sln(sln_s[sln_n])
+        sln_s[sln_n] = {}
+        for i = 1, N do                 -- deepcopy
+            sln_s[sln_n][i] = a[i]
+        end
     else
         for c = 1, N do
             if is_place_ok(a, n, c) then
